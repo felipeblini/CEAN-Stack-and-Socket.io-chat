@@ -30,13 +30,13 @@ export class AppComponent {
 
     this.chatBox = "";
     this.socket = io();
-    this.socket.on("chat_message", (msg) => {
+    this.socket.on("chat_message", (msg: string) => {
       console.log('receiving message:', msg)
       this.messages.push(msg);
     });
   }
 
-  send(message) {
+  send(message: string) {
     console.log('sending message:', message);
     this.socket.emit("chat_message", message);
     this.chatBox = "";
